@@ -1,0 +1,14 @@
+@import '../../../scss//Variable.scss';
+
+.spring {
+    padding-top: 40px;
+
+    h1 {
+        color: $color-title;
+        font-size: 35px;
+    }
+
+    img {
+        width: 100%;
+    }
+}

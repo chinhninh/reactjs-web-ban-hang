@@ -1,0 +1,49 @@
+@import '../../../scss//Variable.scss';
+
+.category {
+    padding-top: 40px;
+
+    h1 {
+        color: $color-title;
+        font-size: 35px;
+    }
+
+    .content-category {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $color-title;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+    }
+
+    .slick-dots {
+        bottom: 72px;
+
+        li {
+            background: $color-btn-dot;
+            border-radius: 100%;
+
+            button::before {
+                content: "";
+            }
+        }
+
+        li:hover {
+            background-color: $color-btn-dot-active;
+        }
+
+        .slick-active {
+            background-color: $color-btn-dot-active !important;
+        }
+    }
+}

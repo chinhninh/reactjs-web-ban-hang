@@ -4,6 +4,7 @@ import logo from "../../images/appIcon/ic_logo.png";
 import { FaSearch } from 'react-icons/fa';
 import { FaShoppingCart } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom'
 
 class Header extends Component {
     render() {
@@ -14,7 +15,9 @@ class Header extends Component {
                         {/* logo */}
                         <div className="col-1">
                             <div className="logo">
-                                <img src={logo} />
+                                <NavLink to="/">
+                                    <img src={logo} />
+                                </NavLink>
                             </div>
                         </div>
                         {/* button header */}
@@ -22,9 +25,9 @@ class Header extends Component {
                             <div className="btn-header">
                                 <ul className="list-group list-group-horizontal">
                                     <li>
-                                        <a href="#">
+                                        <NavLink to="/">
                                             Home
-                                        </a>
+                                        </NavLink>
                                     </li>
                                     <li>
                                         <a href="#">
@@ -57,14 +60,14 @@ class Header extends Component {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <NavLink to="/login">
                                             Login
-                                        </a>
+                                        </NavLink>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <NavLink to="/register">
                                             Register
-                                        </a>
+                                        </NavLink>
                                     </li>
                                 </ul>
                             </div>
