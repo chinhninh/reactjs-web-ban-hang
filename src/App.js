@@ -13,6 +13,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
+import ListProduct from './pages/listProduct/ListProduct';
+import ProductDetail from './pages/productDetail/ProductDetail';
 
 class App extends Component {
   render() {
@@ -28,6 +30,12 @@ class App extends Component {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/list-product">
+            <ListProduct />
+          </Route>
+          <Route path="/product-detail">
+            <ProductDetail />
           </Route>
           <Route path="/">
             <Home/>

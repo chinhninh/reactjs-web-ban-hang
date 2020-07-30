@@ -25,7 +25,7 @@ class Category extends Component {
                 <Slider {...settings}>
                     <div>
                         <div className="content-category">
-                            <NavLink to="">
+                            <NavLink to="/list-product">
                                 <img src={category_1}/>
                                 <p>Maxi Dress</p>
                             </NavLink>
@@ -33,7 +33,7 @@ class Category extends Component {
                     </div>
                     <div>
                     <div className="content-category">
-                            <NavLink to="">
+                            <NavLink to="/list-product">
                                 <img src={category_2}/>
                                 <p>Maxi Dress</p>
                             </NavLink>
@@ -41,7 +41,7 @@ class Category extends Component {
                     </div>
                     <div>
                     <div className="content-category">
-                            <NavLink to="">
+                            <NavLink to="/list-product">
                                 <img src={category_3}/>
                                 <p>Maxi Dress</p>
                             </NavLink>
@@ -49,7 +49,7 @@ class Category extends Component {
                     </div>
                     <div>
                     <div className="content-category">
-                            <NavLink to="">
+                            <NavLink to="/list-product">
                                 <img src={category_4}/>
                                 <p>Maxi Dress</p>
                             </NavLink>

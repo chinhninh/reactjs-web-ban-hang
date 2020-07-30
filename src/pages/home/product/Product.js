@@ -17,10 +17,10 @@ class Product extends Component {
                 <div className="row">
                     <div className="col-md-3 col-sm-6">
                         <div className="content-product">
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <img src={sp1} />
                             </NavLink>
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <h5>BLACK OF THE</h5>
                             </NavLink>
                             <p>124$</p>
@@ -28,10 +28,10 @@ class Product extends Component {
                     </div>
                     <div className="col-md-3 col-sm-6">
                         <div className="content-product">
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <img src={sp5} />
                             </NavLink>
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <h5>BLACK OF THE</h5>
                             </NavLink>
                             <p>124$</p>
@@ -39,10 +39,10 @@ class Product extends Component {
                     </div>
                     <div className="col-md-3 col-sm-6">
                         <div className="content-product">
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <img src={sp4} />
                             </NavLink>
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <h5>BLACK OF THE</h5>
                             </NavLink>
                             <p>124$</p>
@@ -50,10 +50,10 @@ class Product extends Component {
                     </div>
                     <div className="col-md-3 col-sm-6">
                         <div className="content-product">
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <img src={sp3} />
                             </NavLink>
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <h5>BLACK OF THE</h5>
                             </NavLink>
                             <p>124$</p>
@@ -61,10 +61,10 @@ class Product extends Component {
                     </div>
                     <div className="col-md-3 col-sm-6">
                         <div className="content-product">
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <img src={sp1} />
                             </NavLink>
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <h5>BLACK OF THE</h5>
                             </NavLink>
                             <p>124$</p>
@@ -72,10 +72,10 @@ class Product extends Component {
                     </div>
                     <div className="col-md-3 col-sm-6">
                         <div className="content-product">
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <img src={sp2} />
                             </NavLink>
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <h5>BLACK OF THE</h5>
                             </NavLink>
                             <p>124$</p>
@@ -83,10 +83,10 @@ class Product extends Component {
                     </div>
                     <div className="col-md-3 col-sm-6">
                         <div className="content-product">
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <img src={sp3} />
                             </NavLink>
-                            <NavLink to="">
+                            <NavLink to="/product-detail">
                                 <h5>BLACK OF THE</h5>
                             </NavLink>
                             <p>124$</p>

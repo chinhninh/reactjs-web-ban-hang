@@ -11,9 +11,9 @@ class Spring extends Component {
                     SPRING COLLECTION
                 </h1>
                 <div className="banner">
-                <a href="#">
+                <NavLink to="/list-product">
                     <img src={banner}/>
-                </a>
+                </NavLink>
                 </div>
             </div>
         );

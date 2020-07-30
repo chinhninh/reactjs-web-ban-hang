@@ -1,0 +1,67 @@
+@import '../../scss//Variable.scss';
+
+.list-product {
+    padding: 40px 0;
+
+    h1 {
+        color: $color-title;
+        font-size: 35px;
+    }
+
+    .content-product {
+        margin-top: 30px;
+
+        a {
+            text-decoration: none;
+
+            img {
+                max-width: 100%;
+                transition: transform .4s;
+            }
+
+            h5 {
+                color: $color-title;
+                font-size: 20px;
+                margin-top: 15px;
+            }
+           
+        }
+
+        .price {
+                color: $color-price;
+            }
+        
+        .material {
+            line-height: 5px;
+        }
+
+        .color {
+            li {
+                list-style: none;
+                margin-right: 20px;
+                font-size: 18px;
+            }
+
+            .bg-color {
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                background-color: blue;
+            }
+        }
+        
+    }
+
+    .content-product:hover {
+
+        a {
+            h5 {
+                color: black;
+            }
+
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
