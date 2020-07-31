@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './ProductDetail.scss';
-import sp1 from '../../images/temp/sp1.jpeg';
-import sp2 from '../../images/temp/sp2.jpeg';
+import { NavLink } from 'react-bootstrap';
+import ImageDetail from './imageDetail/ImageDetail';
+import InfoProduct from './infoProduct/InfoProduct';
 
 class ProductDetail extends Component {
     render() {
@@ -13,13 +14,10 @@ class ProductDetail extends Component {
                         <div className="col-md-10 col-12">
                             <div className="row">
                                 <div className="col-md-6 col-12">
-                                    <div>
-                                        <img src={sp1}/>
-                                        <img src={sp2}/>
-                                    </div>
+                                    <ImageDetail/>
                                 </div>
                                 <div className="col-md-6 col-12">
-
+                                    <InfoProduct/>
                                 </div>
                             </div>
                         </div>

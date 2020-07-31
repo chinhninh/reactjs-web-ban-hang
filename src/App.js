@@ -15,6 +15,7 @@ import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 import ListProduct from './pages/listProduct/ListProduct';
 import ProductDetail from './pages/productDetail/ProductDetail';
+import Cart from './pages/cart/Cart';
 
 class App extends Component {
   render() {
@@ -22,7 +23,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-        
 
         <Switch>
           <Route path="/register">
@@ -36,6 +36,9 @@ class App extends Component {
           </Route>
           <Route path="/product-detail">
             <ProductDetail />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
           <Route path="/">
             <Home/>

@@ -1,0 +1,57 @@
+@import '../../../scss//Variable.scss';
+
+.info-product {
+    .title-price {
+        span {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        strong {
+            color: $color-price;
+            font-size: 25px;
+            margin-left: 10px;
+        }
+    }
+
+    .info-product {
+        margin-top: 20px;
+        color: $color-title;
+    }
+
+    .color-product {
+        ul {
+            justify-content: space-between;
+
+            li {
+                list-style: none;
+                color: coral;
+            }
+    
+            .color {
+
+                .bg-color {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 100%;
+                    background-color: blue;
+                    float: right;
+                    margin-left: 10px;
+                }
+            }
+        }
+       
+    }
+
+    .btn-cart {
+        width: 50%;
+        background-color: $bg-color;
+        color: $color-white;
+        margin-top: 15px;
+    }
+
+    .btn-cart:hover {
+        opacity: 0.9;
+    }
+
+}

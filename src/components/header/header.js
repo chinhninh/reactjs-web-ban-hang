@@ -41,10 +41,10 @@ class Header extends Component {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <NavLink to="/cart">
                                             <i><FaShoppingCart /></i>
                                             <span>Cart</span>
-                                        </a>
+                                        </NavLink>
                                     </li>
                                 </ul>
                             </div>

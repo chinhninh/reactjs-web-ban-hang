@@ -1,0 +1,33 @@
+.image-product {
+    div {
+        outline: none;
+    }
+    .image {
+        img {
+            width: 100% !important;
+            padding: 10px;
+        }
+    }
+
+    .slick-arrow::before {
+        color: #90caf9;
+        font-size: 29px;
+        display: none;
+    }
+
+    .slick-next {
+        right: -8px;
+    }
+
+    .slick-prev {
+        left: -17px;
+        z-index: 100;
+        top: 51%;
+    }
+}
+
+.image-product:hover {
+    .slick-arrow::before {
+        display: block;
+    }
+}
