@@ -1,0 +1,23 @@
+@import '../../../scss/Variable.scss';
+
+.checkout {
+    p {
+        font-size: 25px;
+        font-weight: 600;
+        margin-top: 30px;
+
+        span {
+            color: $color-price;
+            margin-left: 10px;
+        }
+    }
+
+    .btn-checkout {
+        text-align: center;
+
+        button {
+            background-color: $bg-color;
+            width: 30%;
+        }
+    }
+}
