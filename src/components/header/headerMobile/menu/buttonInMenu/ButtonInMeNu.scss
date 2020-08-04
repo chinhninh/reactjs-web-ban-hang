@@ -1,0 +1,23 @@
+@import '../../../../../scss//Variable.scss';
+
+.btn-in-menu {
+    ul {
+        padding-left: 0;
+
+        li {
+            list-style: none;
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            a {
+                display: block;
+                text-decoration: none;
+                color: #fff;
+            }
+
+            a:hover {
+                color: $hover-text-btn ;
+            }
+        }
+    }
+}

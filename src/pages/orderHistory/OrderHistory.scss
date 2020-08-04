@@ -1,0 +1,31 @@
+@import '../../scss/Variable.scss';
+
+.order-history {
+    margin-top: 40px;
+
+    .order-id {
+        p {
+            margin-top: 20px;
+        }
+    }
+
+    .order-time {
+        p {
+            margin-top: 20px;
+            color: $color-time;
+        }
+    }
+
+    .order-status {
+        p {
+            margin-top: 20px;
+        }
+    }
+
+    .order-price {
+        p {
+            margin-top: 20px;
+            color: $color-price;
+        }
+    }
+}

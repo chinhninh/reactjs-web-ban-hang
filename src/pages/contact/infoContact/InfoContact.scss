@@ -1,0 +1,18 @@
+@import "../../../scss/Variable.scss";
+
+.info-contact {
+    div {
+        margin-top: 20px;
+
+        i {
+            color: $color-btn-dot-active;
+            font-size: 20px;
+        }
+
+        span {
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+@import "../../../scss/Variable.scss";
+
+.style-cart {
+    position: relative;
+
+    .cart-number {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        background-color: #fce4ec;
+        top: -13px;
+        left: -11px;
+        color: $color-price;
+        text-align: center;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,23 @@
+@import "../../../../scss/Variable.scss";
+
+.search {
+    a {
+        display: inline;
+    }
+}
+
+.modal  {
+    input {
+        width: 100%;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid black;
+        padding-left: 15px;
+        outline: none;
+    }
+
+    .submit {
+        background-color: $bg-color;
+        color: $color-white;
+    }
+}

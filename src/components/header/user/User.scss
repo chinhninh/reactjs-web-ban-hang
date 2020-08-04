@@ -1,0 +1,62 @@
+@import "../../../scss/Variable.scss";
+
+.btn-user {
+    position: relative;
+
+    .menu-btn-user {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: transform .3s ease;
+        background-color: $bg-color;
+        position: absolute;
+        /* top: 53px; */
+        right: -48px;
+        padding-left: 0;
+        padding-bottom: 15px;
+        width: 200px;
+        z-index: 99999;
+        box-shadow: 0px 15px 50px 0px rgba(0, 27, 103, 0.3);
+        border-radius: 4px;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        transition: all 0.2s;
+
+        li:hover {
+            background-color: $bg-color;
+        }
+
+        li {
+            margin-left: 0 !important;
+            height: 36px;
+            a {
+                color: #fff;
+                text-decoration: none;
+                display: block;
+            }
+
+            a:hover {
+                color: black;
+            }
+        } 
+    }
+
+    .menu-btn-user:before {
+        content: "";
+        display: block;
+        background: transparent;
+        height: 25px;
+        position: absolute;
+        top: -25px;
+        width: 100%;
+        left: 0;
+    }
+}
+
+.btn-user:hover .menu-btn-user {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(29px);
+}

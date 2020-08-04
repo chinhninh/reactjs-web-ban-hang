@@ -1,0 +1,62 @@
+@import '../../../../../scss/Variable.scss';
+
+.btn-user-mobile {
+    color: white;
+    padding: 0;
+    margin-top: -14px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+
+    span {
+      margin-left: 10px;
+      font-size: 17px;
+    }
+
+    i {
+      float: right;
+      -webkit-transition: .25s ease;
+      transition: .25s ease;
+    }
+
+    .hover-angle-down {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+}
+
+// .btn-user:hover i {
+//   -webkit-transform: rotate(180deg);
+//   transform: rotate(180deg);
+// }
+
+.btn-user-mobile:hover {
+    color: $hover-text-btn;
+}
+
+.btn-in-user {
+  height: 0px;
+  overflow: hidden;
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+
+  li {
+    list-style: none;
+    padding: 7px 0;
+
+    a {
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+
+    a:hover {
+      color: $hover-text-btn;
+    }
+  }
+}
+
+.show-btn-user {
+  height: 200px;
+  overflow: unset;
+}

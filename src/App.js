@@ -16,6 +16,10 @@ import Home from './pages/home/Home';
 import ListProduct from './pages/listProduct/ListProduct';
 import ProductDetail from './pages/productDetail/ProductDetail';
 import Cart from './pages/cart/Cart';
+import Contact from './pages/contact/Contact';
+import ContentSearch from './pages/contentSearch/ContentSearch';
+import ChangeInfo from './pages/changeInfo/ChangeInfo';
+import OrderHistory from './pages/orderHistory/OrderHistory';
 
 class App extends Component {
   render() {
@@ -24,26 +28,38 @@ class App extends Component {
         <div className="App">
           <Header />
 
-        <Switch>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/list-product">
-            <ListProduct />
-          </Route>
-          <Route path="/product-detail">
-            <ProductDetail />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/">
-            <Home/>
-          </Route>
-        </Switch>
+          <Switch>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/list-product">
+              <ListProduct />
+            </Route>
+            <Route path="/product-detail">
+              <ProductDetail />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/search">
+              <ContentSearch />
+            </Route>
+            <Route path="/change-info">
+              <ChangeInfo />
+            </Route>
+            <Route path="/order-history">
+              <OrderHistory />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
         </div>
       </Router>
     );

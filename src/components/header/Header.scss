@@ -3,6 +3,7 @@
 .header {
     background-color: $bg-color ;
     padding: 10px 0;
+    // display: none;
 
     .logo {
         text-align: center;
@@ -61,3 +62,18 @@
         }
     }
 }
+
+.header-mobile {
+    display: none;
+}
+
+@media (max-width:1199px) {
+    .header {
+        display: none;
+    }
+
+    .header-mobile {
+        display: block;
+    } 
+}
+
