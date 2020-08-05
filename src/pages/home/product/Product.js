@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 class Product extends Component {
     render() {
         const { dataProduct, loadingProductType } = this.props;
-        console.log("product: ",dataProduct)
+        // console.log("product: ",dataProduct)
 
         let dataProduct_1;
         if (dataProduct == [] || dataProduct == null) { dataProduct_1 = <div>loading...</div> }

@@ -6,9 +6,10 @@ const registerRequest = () => {
     }
 }
 
-const registerSuccess = () => {
+const registerSuccess = (dataRegister) => {
     return {
-        type: REGISTER_SUCCESS
+        type: REGISTER_SUCCESS,
+        payload:dataRegister
     }
 }
 

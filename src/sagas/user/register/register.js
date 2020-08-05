@@ -1,11 +1,11 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, call, put,takeEvery } from "redux-saga/effects";
 import axios from 'axios';
 import {REGISTER_REQUEST} from '../../../redux/actions/user/register/actionType';
 import {registerSuccess, registerError} from '../../../redux/actions/user/register/actionCreator';
 import Api from '../../../api/Api';
 
 export function* register () {
-    yield takeLatest(REGISTER_REQUEST,registerSaga)
+    yield takeEvery(REGISTER_REQUEST,registerSaga)
 }
 
 const getDataRegister = (valueInput) => {
@@ -24,13 +24,13 @@ const getDataRegister = (valueInput) => {
             password: valueInput.password
           }
     })
-    .then(response => console.log("register: ",response.data))
+    .then(response => response.data)
     .catch(error => console.log("error: ",error))
 }
 
 function* registerSaga(actionRegister){
     try {
-        const dataRegister = yield call(getDataRegister(actionRegister.payload));
+        const dataRegister = yield call(getDataRegister,actionRegister.payload);
         // console.log("register: ",dataRegister)
         yield put(registerSuccess(dataRegister))
     } catch (error) {

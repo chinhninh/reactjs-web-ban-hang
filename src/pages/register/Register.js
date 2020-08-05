@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import "./Register.scss";
 import { connect } from 'react-redux';
 import { REGISTER_REQUEST } from '../../redux/actions/user/register/actionType';
-import { Link ,withRouter} from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { Alert } from 'react-bootstrap';
 
 class Register extends Component {
     constructor(props) {
@@ -11,61 +12,95 @@ class Register extends Component {
             name: "",
             email: "",
             password: "",
-            rePassword: ""
+            rePassword: "",
+            showAler: true,
+            confirmPassword: ""
         };
         this.changeInput = this.changeInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleShowAler = this.handleShowAler.bind(this);
+    }
+
+    handleShowAler = () => {
+        this.setState({
+            showAler: false
+        })
     }
 
     changeInput = (event) => {
-       this.setState({
-           [event.target.name]: event.target.value
-       })
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
-        this.props.history.push('/login');
-        const {handleRegister} = this.props;
-        const {name, email, password} = this.state;
+        // this.props.history.push('/login');
+        const { handleRegister } = this.props;
+        const { name, email, password, rePassword, confirmPassword } = this.state;
         const valueInput = {
-            name, 
-            email, 
+            name,
+            email,
             password
         }
-        handleRegister(valueInput);
+        if(password != rePassword){
+            this.setState({confirmPassword: "Password don't match"})
+        } else {
+            handleRegister(valueInput);
+            this.setState({showAler:true})
+        }
     }
 
     render() {
-        const {name, email, password,rePassword} = this.state;
+        const { name, email, password, rePassword, showAler, confirmPassword } = this.state;
+        const { dataRegister, loadingRegister } = this.props;
+        console.log("data: ",dataRegister)
+        console.log("alert: ",showAler)
+
+        const titleBtnRegister = (
+            loadingRegister ? "loading..." : "Register"
+        )
+
+        let AlertSuccess;
+            if (showAler) {
+                AlertSuccess = <Alert variant="success " onClose={this.handleShowAler} dismissible>
+                    <Alert.Heading>Success! <span> You want</span> <Link to="/login" className="btn btn-success">Login now</Link></Alert.Heading>
+                </Alert>
+            } else { AlertSuccess = <div></div> }
+
+        const alertRegister = (
+            dataRegister == "THANH_CONG" ? AlertSuccess:""
+        )
 
         return (
-            <div className="register">
+            <div className="register" >
                 <div className="row">
                     <div className="col-sm-3 col-1"></div>
                     <div className="col-sm-6 col-10 form-register">
-                        <form to="/login" onSubmit={this.handleSubmit}>
-                        {/* name */}
+                        <form onSubmit={this.handleSubmit}>
+                            {/* name */}
                             <div className="form-group">
                                 <label for="name">Full name:</label>
-                                <input name="name" value={name} onChange= {this.changeInput} type="text" className="form-control" placeholder="Enter your name" id="name" />
+                                <input required name="name" value={name} onChange={this.changeInput} type="text" className="form-control" placeholder="Enter your name" id="name" />
                             </div>
                             {/* email */}
                             <div className="form-group">
                                 <label for="email">Email address:</label>
-                                <input name="email" value={email} onChange= {this.changeInput} type="email" className="form-control" placeholder="Enter email" id="email" />
+                                <input required name="email" value={email} onChange={this.changeInput} type="email" className="form-control" placeholder="Enter email" id="email" />
                             </div>
                             {/* password */}
                             <div className="form-group">
                                 <label for="pwd">Password:</label>
-                                <input name="password" value={password} onChange= {this.changeInput} type="password" className="form-control" placeholder="Enter password" id="pwd" />
+                                <input required name="password" value={password} onChange={this.changeInput} type="password" className="form-control" placeholder="Enter password" id="pwd" />
                             </div>
                             {/* rePassword */}
                             <div className="form-group">
-                                <label for="pwd">Re-enter your Password:</label>
-                                <input name="rePassword" value={rePassword} onChange= {this.changeInput} type="re-password" className="form-control" placeholder="Re-enter your Password:" id="re-pwd" />
+                                <label for="repwd">Re-enter your Password:</label>
+                                <input required name="rePassword" value={rePassword} onChange={this.changeInput} type="password" className="form-control" placeholder="Re-enter your Password:" id="re-pwd" />
+                                {password === rePassword  ? "": <p className="confirmPassword">{confirmPassword}</p>}
                             </div>
-                            <Link to="/login" onClick={this.handleSubmit}  className="btn btn-primary">Submit</Link>
+                            {alertRegister}
+                            <button type="submit" className="btn btn-primary">{titleBtnRegister}</button>
                         </form>
                     </div>
                     <div className="col-sm-3 col-1"></div>
@@ -78,7 +113,7 @@ class Register extends Component {
 const mapStateToProps = (state) => {
     return {
         dataRegister: state.register.data,
-        // loadingProductType: state.productType.loading
+        loadingRegister: state.register.loading
     }
 }
 

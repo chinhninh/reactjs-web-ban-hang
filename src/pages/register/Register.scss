@@ -6,5 +6,11 @@
 
     .form-register {
         background-color: $bg-white;
+
+        .confirmPassword {
+            margin-top: 5px;
+            font-size: 14px;
+            color: red;
+        }
     }
 }
