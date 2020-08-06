@@ -3,9 +3,9 @@ import './Header.scss';
 import logo from "../../images/appIcon/ic_logo.png";
 import { NavLink } from 'react-router-dom';
 import Search from './search/Search';
-import User from './user/User';
 import Cart from './cart/Cart';
 import HeaderMobile from './headerMobile/HeaderMobile';
+import UserActive from './userActive/UserActive';
 
 class Header extends Component {
     render() {
@@ -48,23 +48,7 @@ class Header extends Component {
                             </div>
                             {/* right header */}
                             <div className="col-6">
-                                <div className="right-header">
-                                    <ul className="list-group list-group-horizontal">
-                                        <li>
-                                            <User />
-                                        </li>
-                                        <li>
-                                            <NavLink to="/login">
-                                                Login
-                                        </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to="/register">
-                                                Register
-                                        </NavLink>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <UserActive/>
                             </div>
                         </div>
                     </div>

@@ -1,57 +1,85 @@
 import React, { Component } from 'react';
 import './Login.scss';
-import {connect} from 'react-redux';
-import {LOGIN_REQUEST} from '../../redux/actions/user/login/actionType.js';
-import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { LOGIN_REQUEST } from '../../redux/actions/user/login/actionType.js';
+import { withRouter,Redirect } from 'react-router-dom';
+import { Alert } from 'react-bootstrap';
 
 class Login extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            showAlerError: true,
         };
         this.changeInput = this.changeInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleShowAler = this.handleShowAler.bind(this);
     }
 
     changeInput = (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            showAlerError: false
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
         // this.props.history.push('/');
-        const {handleLogin} = this.props;
-        const {email, password} = this.state;
+        const { handleLogin,dataLogin } = this.props;
+        const { email, password } = this.state;
         const valueInput = {
             email,
             password
         }
-        handleLogin(valueInput)
+        handleLogin(valueInput);
+        this.setState({showAlerError: true})
+        
+        // this.setState({showAler:true})
+    }
+
+    handleShowAler = () => {
+        this.setState({showAlerError:false})
     }
 
     render() {
-        const {email, password} = this.state;
-        const {dataLogin} = this.props;
-        // console.log("datalogin: ",dataLogin)
+        const { email, password,showAlerError } = this.state;
+        const { dataLogin, loadingLogin, tokenUser } = this.props;
+        
+        const titleBtnLogin = (
+            loadingLogin? "loading...":"Login"
+        )
+
+        let alertError;
+        if (showAlerError) {
+            alertError = <Alert variant="danger" onClose={this.handleShowAler} dismissible>
+                <Alert.Heading> Invalid Email or password.</Alert.Heading>
+            </Alert>
+        } else { alertError = <div></div> }
+
+        const AlertLoginError = (dataLogin == "SAI_THONG_TIN_DANG_NHAP" ? alertError: "")
+
+        if (tokenUser) {
+            return <Redirect to='/' />
+        }
         return (
             <div className="Login">
                 <div className="row">
                     <div className="col-sm-3 col-1"></div>
                     <div className="col-sm-6 col-10 form-Login">
-                        <form  onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label for="email">Email address:</label>
-                                <input onChange={this.changeInput} name="email" value={email} type="email" className="form-control" placeholder="Enter email" id="email" />
+                                <label htmlFor="email">Email address:</label>
+                                <input required onChange={this.changeInput} name="email" value={email} type="email" className="form-control" placeholder="Enter email" id="email" />
                             </div>
                             <div className="form-group">
-                                <label for="pwd">Password:</label>
-                                <input onChange={this.changeInput} name="password" value={password} type="password" className="form-control" placeholder="Enter password" id="pwd" />
+                                <label htmlFor="pwd">Password:</label>
+                                <input required onChange={this.changeInput} name="password" value={password} type="password" className="form-control" placeholder="Enter password" id="pwd" />
                             </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            {AlertLoginError}
+                            <button type="submit" className="btn btn-primary">{titleBtnLogin}</button>
                         </form>
                     </div>
                     <div className="col-sm-3 col-1"></div>
@@ -63,7 +91,10 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        dataLogin: state.login.data,
+        tokenUser: state.login.token,
+        user: state.login.user,
+        loadingLogin: state.login.loading,
+        dataLogin: state.login.data
     }
 }
 
@@ -73,4 +104,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Login));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

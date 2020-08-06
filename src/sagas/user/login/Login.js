@@ -31,7 +31,14 @@ function* loginSaga(actionLogin){
     try {
         const dataLogin = yield call(getDataLogin,actionLogin.payload);
         // console.log("login: ",dataLogin)
-        yield put(loginSuccess(dataLogin))
+        const token = dataLogin.token;
+        const user = dataLogin.user;
+        const data = {
+            dataLogin,
+            token,
+            user
+        }
+        yield put(loginSuccess(data))
     } catch (error) {
         yield put(loginError(error))
     }

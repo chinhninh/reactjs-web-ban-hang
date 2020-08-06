@@ -6,10 +6,10 @@ const loginRequest = () => {
     }
 }
 
-const loginSuccess = (dataLogin) => {
+const loginSuccess = (data) => {
     return {
         type: LOGIN_SUCCESS,
-        payload: dataLogin
+        payload: data
     }
 }
 

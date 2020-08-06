@@ -24,7 +24,7 @@ class Category extends Component {
             slidesToShow: 1,
             slidesToScroll: 1
         };
-        const { dataType, loadingProductType } = this.props;
+        const { dataType, loadingProductType,dataLogin } = this.props;
         var  dataCategory;
 
         // if(loadingProductType) { dataCategory = <div>loading...</div>}
@@ -86,7 +86,8 @@ class Category extends Component {
 const mapStateToProps = (state) => {
     return {
         dataType: state.productType.dataType,
-        loadingProductType: state.productType.loading
+        loadingProductType: state.productType.loading,
+        dataLogin: state.login.data
     }
 }
 

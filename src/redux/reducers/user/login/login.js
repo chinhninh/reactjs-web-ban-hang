@@ -2,7 +2,9 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from '../../../actions/user
 
 const dataRegister = {
     loading: false,
-    data: [],
+    token: "",
+    user:[],
+    data:[],
     error: false
 }
 
@@ -11,19 +13,25 @@ const login = (state = dataRegister, action) => {
         case LOGIN_REQUEST:
             return {
                 loading: true,
-                data: null,
+                token: "",
+                user: null,
+                data:null,
                 error: false
             }
         case LOGIN_SUCCESS:
             return {
                 loading: false,
-                data: action.payload,
+                token: action.payload.token,
+                user: action.payload.user,
+                data: action.payload.dataLogin,
                 error: false
             }
         case LOGIN_ERROR:
             return {
                 loading: false,
-                data: null,
+                token: "",
+                user: null,
+                data:null,
                 error: true
             }
         default:

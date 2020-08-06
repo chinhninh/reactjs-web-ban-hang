@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import './User.scss';
 import { FaUser } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class User extends Component {
     render() {
+        const { dataUser, loadingUser } = this.props;
+
         return (
             <div>
                 <div className="btn-user">
                     <a href="#">
                         <i><FaUser /></i>
-                        <span>Phan Chinh Ninh</span>
+                        {/* {userName} */}
+                       <span> {dataUser? dataUser.name:""}</span>
                     </a>
                     <ul class="menu-btn-user">
                         <li class="dropdown-item">
@@ -26,4 +30,11 @@ class User extends Component {
     }
 }
 
-export default User;
+const mapStateToProps = (state) => {
+    return {
+        dataUser: state.login.user,
+        loadingUser: state.login.loading
+    }
+}
+
+export default connect(mapStateToProps)(User);
