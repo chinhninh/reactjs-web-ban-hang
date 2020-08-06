@@ -16,11 +16,11 @@ class User extends Component {
                         {/* {userName} */}
                        <span> {dataUser? dataUser.name:""}</span>
                     </a>
-                    <ul class="menu-btn-user">
-                        <li class="dropdown-item">
+                    <ul className="menu-btn-user">
+                        <li className="dropdown-item">
                             <NavLink to="/order-history">Order history</NavLink>
                         </li>
-                        <li class="dropdown-item">
+                        <li className="dropdown-item">
                             <NavLink to="/change-info">Change info</NavLink>
                         </li>
                     </ul>

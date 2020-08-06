@@ -41,13 +41,13 @@ class UserActive extends Component {
         )
 
         let showBtn;
-        if(dataUser == [] || dataUser == null) {showBtn = btnLoginRegister}
+        if(dataUser == null) {showBtn = btnLoginRegister}
         else {showBtn = btnLogout}
 
         return (
             <div className="user-active">
-                {/* {showBtn} */}
-                <ul className="list-group list-group-horizontal">
+                {showBtn}
+                {/* <ul className="list-group list-group-horizontal">
                 <li>
                     <User />
                 </li>
@@ -61,7 +61,7 @@ class UserActive extends Component {
                         Register
                 </NavLink>
                 </li>
-            </ul>
+            </ul> */}
             </div>
         );
     }

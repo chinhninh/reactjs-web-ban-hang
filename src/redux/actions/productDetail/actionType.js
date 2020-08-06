@@ -1,0 +1,5 @@
+const GET_ID_PRODUCT = "GET_ID_PRODUCT";
+
+export {
+    GET_ID_PRODUCT
+}

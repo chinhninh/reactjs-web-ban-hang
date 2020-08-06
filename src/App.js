@@ -6,7 +6,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -38,9 +37,7 @@ class App extends Component {
             <Route path="/list-product">
               <ListProduct />
             </Route>
-            <Route path="/product-detail">
-              <ProductDetail />
-            </Route>
+            <Route path={"/product-detail/:id"} render={(props) => <ProductDetail {...props}/>}/>
             <Route path="/cart">
               <Cart />
             </Route>
@@ -56,7 +53,7 @@ class App extends Component {
             <Route path="/order-history">
               <OrderHistory />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Home />
             </Route>
           </Switch>

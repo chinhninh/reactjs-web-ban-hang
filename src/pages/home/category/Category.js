@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import './Category.scss';
 import Slider from "react-slick";
 import { NavLink } from 'react-router-dom';
-import category_1 from '../../../images/temp/maxi.jpg';
-import category_2 from '../../../images/temp/midi.jpg';
-import category_3 from '../../../images/temp/mini.jpg';
-import category_4 from '../../../images/temp/little.jpg';
 import { connect } from 'react-redux';
 import { PRODUCT_TYPE_REQUEST } from '../../../redux/actions/productType/actionType';
+import Api from '../../../api/Api';
 
 class Category extends Component {
     componentDidMount() {
@@ -24,51 +21,31 @@ class Category extends Component {
             slidesToShow: 1,
             slidesToScroll: 1
         };
-        const { dataType, loadingProductType,dataLogin } = this.props;
-        var  dataCategory;
+        const { dataType, loadingProductType, dataLogin } = this.props;
 
-        // if(loadingProductType) { dataCategory = <div>loading...</div>}
-        // else {  dataCategory = dataType.map((item)=>{
-        //                 <NavLink to="/list-product" id={item.id}>
-        //                 <div>
-        //                     <img src={`http://localhost/api-ban-hang/images/type/${item.image}`} />
-        //                     <p>{item.name}</p>
-        //                 </div>
-                            
-        //                 </NavLink>
-        // })
-        // }
+        var dataCategory;
 
-        // console.log('--------------')
-    //    console.log(dataCategory)
-    // console.log(dataType)
+        if (dataType == [] || dataType == null) { dataCategory = <div>loading...</div> }
+        else {
+            dataCategory = dataType.map((item) => (
+                <div key={item.id}>
+                    <div className="content-category">
+                        <NavLink to="/list-product" id={item.id}>
+                            <img src={`${Api}api-ban-hang/images/type/${item.image}`} />
+                            <p>{item.name}</p>
+                        </NavLink>
+                    </div>
+                </div>
+            ))
+        }
 
-
-        if (dataType==[] || dataType==null) return <div>loading...</div>
-        // console.log(dataType)
         return (
             <div className="category">
                 <h1>LIST OF CATEGORY</h1>
 
                 {/* slider */}
                 <Slider {...settings}>
-                    <div>
-                        <div className="content-category">
-                        {
-                             dataType.map((item)=>{
-
-                        <NavLink to="/list-product" id={item.id}>
-                        <div>
-                            <img src={`http://localhost/api-ban-hang/images/type/${item.image}`} />
-                            <p>{item.name}</p>
-                        </div>
-                            
-                        </NavLink>
-                })
-                        }
-                        </div>
-                    </div>
-
+                    {dataCategory}
                     {/* <div>
                         <div className="content-category">
                             <NavLink to="/list-product">

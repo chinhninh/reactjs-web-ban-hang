@@ -3,7 +3,7 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from '../../../actions/user
 const dataRegister = {
     loading: false,
     token: "",
-    user:[],
+    user:null,
     data:[],
     error: false
 }

@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from "redux-saga";
 import rootSaga from './sagas/rootSaga';
 import history from './History';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,9 +18,9 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter history={history} basename="/">
+    <BrowserRouter history={history} basename="/">
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
