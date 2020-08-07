@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import './InfoProduct.scss';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import  {addToCart} from '../../../redux/actions/cart/cartCreator';
 
 class InfoProduct extends Component {
+    clickAddToCart = () => {
+        const {addToCart} = this.props;
+        const { idProduct, dataProduct } = this.props;
+        const dataIdProduct = dataProduct.find(item => item.id == idProduct);
+        addToCart(dataIdProduct);
+    }
+
     render() {
         const { idProduct, dataProduct } = this.props;
         const dataIdProduct = dataProduct.find(item => item.id == idProduct) // or const dataIdProduct = dataProduct.filter(item => item.id == idProduct);
@@ -25,11 +33,11 @@ class InfoProduct extends Component {
                                             </li>
                         <li className="color">
                             <span>Color {dataIdProduct.color}</span>
-                            <div className="bg-color"></div>
+                            <div className="bg-color" style={{backgroundColor: dataIdProduct.color}}></div>
                         </li>
                     </ul>
                 </div>
-                <NavLink to="" className="btn btn-cart">
+                <NavLink to="/cart" className="btn btn-cart" onClick={this.clickAddToCart.bind(this)}>
                     Add to card
                 </NavLink>
             </div>)
@@ -50,4 +58,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(InfoProduct);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (dataIdProduct) => dispatch(addToCart(dataIdProduct))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(InfoProduct);

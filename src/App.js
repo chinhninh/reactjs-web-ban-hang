@@ -37,7 +37,7 @@ class App extends Component {
             <Route path="/list-product">
               <ListProduct />
             </Route>
-            <Route path={"/product-detail/:id"} render={(props) => <ProductDetail {...props}/>}/>
+            <Route path={"/product-detail/:id"} component ={ProductDetail} />
             <Route path="/cart">
               <Cart />
             </Route>
