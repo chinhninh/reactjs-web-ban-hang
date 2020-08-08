@@ -7,34 +7,32 @@ import  {addToCart} from '../../../redux/actions/cart/cartCreator';
 class InfoProduct extends Component {
     clickAddToCart = () => {
         const {addToCart} = this.props;
-        const { idProduct, dataProduct } = this.props;
-        const dataIdProduct = dataProduct.find(item => item.id == idProduct);
-        dataIdProduct.quantity =  1
-        addToCart(dataIdProduct);
+        const { dataProductDetail } = this.props;
+        dataProductDetail.map(e => e.quantity = 1)
+        addToCart(dataProductDetail);
     }
 
     render() {
-        const { idProduct, dataProduct } = this.props;
-        const dataIdProduct = dataProduct.find(item => item.id == idProduct) // or const dataIdProduct = dataProduct.filter(item => item.id == idProduct);
+        const { dataProductDetail } = this.props;
  
         let getDataIDProduct;
-        if (dataIdProduct) {
-            getDataIDProduct = (<div>
+        if (dataProductDetail) {
+            getDataIDProduct = dataProductDetail.map(e => <div>
                 <div className="title-price">
-                    <span>{dataIdProduct.name}</span>
-                    <strong>/ {dataIdProduct.price}$</strong>
+                    <span>{e.nameProduct}</span>
+                    <strong>/ {e.price}$</strong>
                 </div>
                      <p className="info-product">
-                        {dataIdProduct.description}
+                        {e.description}
                      </p>
                 <div className="color-product">
                     <ul className="list-group list-group-horizontal">
                         <li>
-                            Material {dataIdProduct.material}
+                            Material {e.material}
                                             </li>
                         <li className="color">
-                            <span>Color {dataIdProduct.color}</span>
-                            <div className="bg-color" style={{backgroundColor: dataIdProduct.color}}></div>
+                            <span>Color {e.color}</span>
+                            <div className="bg-color" style={{backgroundColor: e.color}}></div>
                         </li>
                     </ul>
                 </div>
@@ -55,7 +53,8 @@ class InfoProduct extends Component {
 const mapStateToProps = (state) => {
     return {
         dataProduct: state.productType.dataProduct,
-        idProduct: state.productDetail.id
+        idProduct: state.productDetail.id,
+        dataProductDetail: state.productDetail.data
     }
 }
 

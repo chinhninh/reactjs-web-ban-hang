@@ -1,9 +1,20 @@
-import {GET_ID_PRODUCT} from './actionType';
+import {PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, PRODUCT_DETAIL_ERROR} from './actionType';
 
-export const getIdProduct = (id) => {
-    // console.log("id: ",id)
+export const productDetailRequest = () => {
     return {
-        type: GET_ID_PRODUCT,
-        id
+        type: PRODUCT_DETAIL_REQUEST,
+    }
+}
+
+export const productDetailSuccess = (payload) => {
+    return {
+        type: PRODUCT_DETAIL_SUCCESS,
+        payload
+    }
+}
+
+export const productDetailError = () => {
+    return {
+        type: PRODUCT_DETAIL_ERROR,
     }
 }

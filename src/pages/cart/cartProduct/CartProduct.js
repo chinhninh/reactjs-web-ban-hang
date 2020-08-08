@@ -9,6 +9,7 @@ class CartProduct extends Component {
 
     render() {
         const { dataCart, incQuantity_1, decQuantity_1, deleteCart_1 } = this.props;
+        console.log(dataCart)
 
         let showDataCart;
         if (dataCart) {

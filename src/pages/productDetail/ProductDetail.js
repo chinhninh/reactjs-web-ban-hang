@@ -4,13 +4,13 @@ import { NavLink } from 'react-bootstrap';
 import ImageDetail from './imageDetail/ImageDetail';
 import InfoProduct from './infoProduct/InfoProduct';
 import {connect} from 'react-redux';
-import {getIdProduct} from '../../redux/actions/productDetail/actionCreator';
+import {PRODUCT_DETAIL_REQUEST} from '../../redux/actions/productDetail/actionType';
 
 class ProductDetail extends Component {
     componentDidMount = () => {
+        const {getDataProductDetail} = this.props
         const idProduct =  parseInt(this.props.match.params.id);
-        const {saveIdProduct} = this.props;
-        saveIdProduct(idProduct)
+        getDataProductDetail(idProduct)
     }
 
     render() {
@@ -44,7 +44,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        saveIdProduct: (idProduct) => dispatch(getIdProduct(idProduct))
+        getDataProductDetail: (idProduct) => dispatch({type: PRODUCT_DETAIL_REQUEST, payload: idProduct})
     }
 }
 

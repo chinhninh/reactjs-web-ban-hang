@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class InfoProductCart extends Component {
     render() {
         const { dataCart } = this.props;
+        console.log(dataCart)
 
         let showDataCart;
         if (dataCart) {

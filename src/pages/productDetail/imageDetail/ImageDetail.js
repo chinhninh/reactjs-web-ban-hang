@@ -16,28 +16,27 @@ class ImageDetail extends Component {
             slidesToScroll: 1
         };
 
-        const { idProduct, dataProduct } = this.props;
-        const imageProductDetail = dataProduct.find(e => e.id == idProduct)
+        const {  dataProductDetail } = this.props;
 
-        const imageProductDetail_1 = (imageProductDetail ? imageProductDetail.images : "")
+        let arrImages = [];
+        
+        if(dataProductDetail){ dataProductDetail.map(e => (
+            arrImages= e.images
+        ))}
 
-        let imageProductDetail_2;
-        if (imageProductDetail_1) {
-            imageProductDetail_2 = imageProductDetail_1.map((e,i) =>
+        let imageProductDetail;
+        if (arrImages.length > 0) {
+            imageProductDetail = arrImages.map((e,i) =>(
                 <div className="image" key={i}>
                     <img src={`${Api}api-ban-hang/images/product/${e}`} />
                 </div>
-            )
-        } else {imageProductDetail_2 = ""}
+            ))
+        } else {imageProductDetail = ""}
 
         return (
             <div className="image-product">
                 <Slider {...settings}>
-                    {imageProductDetail_2}
-
-                    {/* <div className="image">
-                        <img src={sp2} />
-                    </div> */}
+                    {imageProductDetail}
                 </Slider>
             </div>
         );
@@ -46,8 +45,7 @@ class ImageDetail extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        dataProduct: state.productType.dataProduct,
-        idProduct: state.productDetail.id
+        dataProductDetail: state.productDetail.data
     }
 }
 
