@@ -30,7 +30,7 @@ class Category extends Component {
             dataCategory = dataType.map((item) => (
                 <div key={item.id}>
                     <div className="content-category">
-                        <NavLink to="/list-product" id={item.id}>
+                        <NavLink to={`/list-product/${item.id}`} key={item.id}>
                             <img src={`${Api}api-ban-hang/images/type/${item.image}`} />
                             <p>{item.name}</p>
                         </NavLink>

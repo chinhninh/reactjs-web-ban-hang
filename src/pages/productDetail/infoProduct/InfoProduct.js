@@ -9,6 +9,7 @@ class InfoProduct extends Component {
         const {addToCart} = this.props;
         const { idProduct, dataProduct } = this.props;
         const dataIdProduct = dataProduct.find(item => item.id == idProduct);
+        dataIdProduct.quantity =  1
         addToCart(dataIdProduct);
     }
 
