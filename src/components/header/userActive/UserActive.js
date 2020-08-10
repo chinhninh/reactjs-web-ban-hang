@@ -3,8 +3,16 @@ import './UserActive.scss';
 import User from '../user/User';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {LOGOUT} from '../../../redux/actions/user/login/actionType.js';
+import {LOGOUT_CHANGE_INFO} from '../../../redux/actions/user/changeInfo/actionType';
 
 class UserActive extends Component {
+    clickLogout = () => {
+        const {handleLogoutChangeInfo, handleLogut} = this.props;
+        handleLogut();
+        handleLogoutChangeInfo();
+    }
+
     render() {
         const { dataUser } = this.props;
         console.log ("teasd:",dataUser)
@@ -33,7 +41,7 @@ class UserActive extends Component {
                     <User />
                 </li>
                 <li>
-                    <NavLink to="/">
+                    <NavLink to="/" onClick = {this.clickLogout}>
                         Logout
                 </NavLink>
                 </li>
@@ -47,21 +55,6 @@ class UserActive extends Component {
         return (
             <div className="user-active">
                 {showBtn}
-                {/* <ul className="list-group list-group-horizontal">
-                <li>
-                    <User />
-                </li>
-                <li>
-                    <NavLink to="/login">
-                        Login
-                </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/register">
-                        Register
-                </NavLink>
-                </li>
-            </ul> */}
             </div>
         );
     }
@@ -73,4 +66,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(UserActive);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleLogut: () => dispatch({type: LOGOUT}),
+        handleLogoutChangeInfo: () => dispatch({type:LOGOUT_CHANGE_INFO})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(UserActive);

@@ -9,10 +9,13 @@ import createSagaMiddleware from "redux-saga";
 import rootSaga from './sagas/rootSaga';
 import history from './History';
 import { BrowserRouter } from 'react-router-dom';
+import {persistedState, saveToLocalStorage} from './localStorage/localStorage';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(allReducers, applyMiddleware(sagaMiddleware))
+const store = createStore(allReducers,persistedState, applyMiddleware(sagaMiddleware))
+
+store.subscribe(() => saveToLocalStorage(store.getState()))
 
 sagaMiddleware.run(rootSaga);
 

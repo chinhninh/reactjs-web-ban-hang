@@ -5,6 +5,7 @@ import login from './user/login/login';
 import productDetail from './productDetail/productDetail';
 import cart from './cart/cart';
 import productByType from './productByType/productByType';
+import changeInfo from './user/changeInfo/changeInfo';
 
 const allReducers = combineReducers ({
     productType,
@@ -12,7 +13,8 @@ const allReducers = combineReducers ({
     login,
     productDetail,
     cart,
-    productByType
+    productByType,
+    changeInfo
 })
 
 export default allReducers;

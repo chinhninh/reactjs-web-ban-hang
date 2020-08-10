@@ -6,7 +6,11 @@ import { connect } from 'react-redux';
 
 class User extends Component {
     render() {
-        const { dataUser, loadingUser } = this.props;
+        const { dataUser, dataChangeInfo } = this.props;
+        let userName;
+        if(dataChangeInfo) {userName = dataChangeInfo.name}
+        if (dataChangeInfo == null && dataUser) {userName = dataUser.name}
+        if (dataChangeInfo == null && dataUser == null) {userName = ""} 
 
         return (
             <div>
@@ -14,7 +18,7 @@ class User extends Component {
                     <a href="#">
                         <i><FaUser /></i>
                         {/* {userName} */}
-                       <span> {dataUser? dataUser.name:""}</span>
+                       <span> {userName}</span>
                     </a>
                     <ul className="menu-btn-user">
                         <li className="dropdown-item">
@@ -33,7 +37,8 @@ class User extends Component {
 const mapStateToProps = (state) => {
     return {
         dataUser: state.login.user,
-        loadingUser: state.login.loading
+        loadingUser: state.login.loading,
+        dataChangeInfo: state.changeInfo.data
     }
 }
 

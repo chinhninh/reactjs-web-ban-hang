@@ -1,10 +1,10 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from '../../../actions/user/login/actionType.js';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from '../../../actions/user/login/actionType.js';
 
 const dataRegister = {
     loading: false,
     token: "",
-    user:null,
-    data:[],
+    user: null,
+    data: [],
     error: false
 }
 
@@ -15,7 +15,7 @@ const login = (state = dataRegister, action) => {
                 loading: true,
                 token: "",
                 user: null,
-                data:null,
+                data: null,
                 error: false
             }
         case LOGIN_SUCCESS:
@@ -31,8 +31,17 @@ const login = (state = dataRegister, action) => {
                 loading: false,
                 token: "",
                 user: null,
-                data:null,
+                data: null,
                 error: true
+            }
+        case LOGOUT:
+            return {
+                ...state,
+                loading: false,
+                token: "",
+                user: null,
+                data: null,
+                error: false
             }
         default:
             return state;
