@@ -1,12 +1,37 @@
 import React, { Component } from 'react';
 import './OrderHistory.scss';
+import { connect } from 'react-redux';
+import { ORDER_HISTORY_REQUEST } from '../../redux/actions/orderHistory/actionType';
 
 class OrderHistory extends Component {
+    componentDidMount = () => {
+        let { getOrderHistory, token } = this.props;
+        getOrderHistory(token)
+    }
+
     render() {
+        let { dataOrderHistory, loading } = this.props;
+
+        let showOrderHistory;
+        if (dataOrderHistory) {
+            showOrderHistory = dataOrderHistory.map(e =>
+                <tbody>
+                            <tr>
+                                <td>{e.id}</td>
+                                <td>{e.date_order}</td>
+                                <td>{e.status == 0 ? "success":"pending"}</td>
+                                <td>{e.total} $</td>
+                            </tr>
+                        </tbody>
+                )
+        } else {showOrderHistory = <div>No data!</div>}
+
+        if(loading) return <div>loading...</div>
         return (
             <div className="order-history">
                 <div className="container">
-                    <table class="table table-striped">
+                <div>
+                    <table className="table table-striped">
                         <thead>
                             <tr>
                                 <th>Order id</th>
@@ -15,31 +40,27 @@ class OrderHistory extends Component {
                                 <th>Total</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>ORD15</td>
-                                <td>2017-04-19 08:30:33</td>
-                                <td>Pending</td>
-                                <td>312$</td>
-                            </tr>
-                            <tr>
-                                <td>ORD16</td>
-                                <td>2017-04-19 08:30:33</td>
-                                <td>Pending</td>
-                                <td>312$</td>
-                            </tr>
-                            <tr>
-                                <td>ORD17</td>
-                                <td>2017-04-19 08:30:33</td>
-                                <td>Pending</td>
-                                <td>312$</td>
-                            </tr>
-                        </tbody>
+                        {showOrderHistory}
                     </table>
+                </div>
                 </div>
             </div>
         );
     }
 }
 
-export default OrderHistory;
+const mapStateToProps = (state) => {
+    return {
+        dataOrderHistory: state.orderHistory.data,
+        loading: state.orderHistory.loading,
+        token: state.login.token
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getOrderHistory: (token) => dispatch({ type: ORDER_HISTORY_REQUEST, payload: token })
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderHistory);
