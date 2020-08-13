@@ -5,6 +5,7 @@ import {login} from './user/login/Login';
 import {productByType} from './productByType/productByType';
 import {productDetail} from './productDetail/productDetail';
 import {changeInfo} from './user/changeInfo/changeInfo';
+import {sendOrder} from './sendOrder/sendOrder';
 
 export default function* rootSaga() {
     yield all([
@@ -13,6 +14,7 @@ export default function* rootSaga() {
         fork(login),
         fork(productByType),
         fork(productDetail),
-        fork(changeInfo)
+        fork(changeInfo),
+        fork(sendOrder)
     ])
 }
