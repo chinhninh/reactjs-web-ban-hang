@@ -15,7 +15,6 @@ class UserActive extends Component {
 
     render() {
         const { dataUser } = this.props;
-        console.log ("teasd:",dataUser)
 
         const btnLoginRegister = (
             <ul className="list-group list-group-horizontal">
