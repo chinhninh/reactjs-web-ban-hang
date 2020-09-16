@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/header/Header';
+import Header from './components/header/header';
 import {
   BrowserRouter as Router,
   Switch,
